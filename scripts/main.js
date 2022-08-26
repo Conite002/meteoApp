@@ -45,7 +45,7 @@ function AppelAPI(long, lat) {
         console.log(resultatsAPI)
         // temps.innerText = resultatsAPI.current.weather[0].description;
         temps.innerText = resultatsAPI.weather[0].description;
-        temperature.innerText = `${Math.trunc(resultatsAPI.main.temp)}°`
+        temperature.innerText = `${Math.floor(Math.trunc(resultatsAPI.main.temp)-273.15)}°`
         localisation.innerText = resultatsAPI.timezone;
         name.innerText = resultatsAPI.name;
 
@@ -70,7 +70,8 @@ function AppelAPI(long, lat) {
 
         // temp pour 3h
         for(let j = 0; j < tempPourH.length; j++) {
-            tempPourH[j].innerText = `${Math.trunc(resultatsAPI.main.temp)} - 273,15` + "°";
+            let degre = Math.floor(Math.trunc(resultatsAPI.main.temp) - 273.15);
+            tempPourH[j].innerText = degre + "°";
             // tempPourH[j].innerText = `${Math.trunc(resultatsAPI.hourly[j * 3].temp)}°`
         }
 
@@ -84,7 +85,7 @@ function AppelAPI(long, lat) {
 
         // Temp par jour
         for(let m = 0; m < 7; m++){
-            tempJoursDiv[m].innerText = `${Math.trunc(resultatsAPI.main.temp)}°`
+            tempJoursDiv[m].innerText = `${Math.floor(Math.trunc(resultatsAPI.main.temp) - 273.15)}°`
             // tempJoursDiv[m].innerText = `${Math.trunc(resultatsAPI.daily[m + 1].temp.day)}°`
         }
 
