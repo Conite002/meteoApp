@@ -70,7 +70,7 @@ function AppelAPI(long, lat) {
 
         // temp pour 3h
         for(let j = 0; j < tempPourH.length; j++) {
-            tempPourH[j].innerText = `${Math.trunc(resultatsAPI.main.temp)}°` + "Kelvin";
+            tempPourH[j].innerText = `${Math.trunc(resultatsAPI.main.temp)} - 273,15` + "°";
             // tempPourH[j].innerText = `${Math.trunc(resultatsAPI.hourly[j * 3].temp)}°`
         }
 
